@@ -1,0 +1,230 @@
+/* Reset & base */
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f0f4f8;
+  color: #333;
+  line-height: 1.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.slot-booking-container {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  max-width: 450px;
+  transition: box-shadow 0.3s ease;
+}
+
+.slot-booking-container:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+h2 {
+  margin-bottom: 25px;
+  color: #1a73e8;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Label styling */
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #444;
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+/* Icon inside label */
+label svg {
+  stroke: #1a73e8;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Select, input and buttons styling */
+input[type="text"],
+select,
+input[type="date"] {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline-offset: 2px;
+}
+
+input[type="text"]:focus,
+select:focus,
+input[type="date"]:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 8px rgba(26, 115, 232, 0.4);
+}
+
+/* Slot buttons container */
+.slots-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.slot-btn {
+  flex: 1 1 45%;
+  padding: 10px 14px;
+  background-color: #e8f0fe;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #1a73e8;
+  text-align: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  user-select: none;
+}
+
+.slot-btn:hover:not(.disabled) {
+  background-color: #d2e3fc;
+}
+
+.slot-btn.selected {
+  background-color: #1a73e8;
+  color: white;
+  border-color: #174ea6;
+}
+
+.slot-btn.disabled {
+  background-color: #f5f5f5;
+  color: #aaa;
+  cursor: not-allowed;
+  border-color: #eee;
+}
+
+/* Submit button */
+button.submit-btn {
+  margin-top: 12px;
+  background: linear-gradient(135deg, #1a73e8, #174ea6);
+  color: white;
+  font-weight: 700;
+  padding: 12px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  box-shadow: 0 6px 14px rgba(26, 115, 232, 0.5);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+button.submit-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #174ea6, #1a73e8);
+  box-shadow: 0 8px 18px rgba(23, 78, 166, 0.6);
+}
+
+button.submit-btn:disabled {
+  background: #a9c0f4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  margin: 15px auto 0;
+  border: 4px solid #e0e0e0;
+  border-top: 4px solid #1a73e8;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Confirmation Box */
+.confirmation {
+  background: #e6f4ea;
+  border: 2px solid #34a853;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  color: #176f33;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(52, 168, 83, 0.4);
+  position: relative;
+}
+
+.confirmation svg {
+  stroke: #34a853;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 10px;
+}
+
+.confirmation .details {
+  margin-top: 12px;
+  font-size: 1rem;
+  color: #2c662d;
+}
+
+/* Back button on confirmation */
+button.back-btn {
+  margin-top: 18px;
+  background: transparent;
+  border: none;
+  color: #1a73e8;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+button.back-btn:hover {
+  color: #174ea6;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .slot-booking-container {
+    padding: 25px 20px;
+  }
+
+  .slots-container {
+    gap: 10px;
+  }
+
+  .slot-btn {
+    flex: 1 1 100%;
+  }
+}
