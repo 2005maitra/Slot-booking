@@ -398,7 +398,7 @@ function SlotBookingForm() {
                 ))}
               </select>
             </div>
-
+            
             {/* Submit */}
             <button
               onClick={handleSubmit} disabled={isLoading}
